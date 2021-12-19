@@ -10,6 +10,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class Splash_Screen extends AppCompatActivity {
     private static int splash = 4000;
     Animation animation;
@@ -39,5 +41,17 @@ public class Splash_Screen extends AppCompatActivity {
         }, splash);
 
 
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (FirebaseAuth.getInstance().getCurrentUser()!=null)
+        {
+            startActivity(new Intent(Splash_Screen.this, MainActivity.class));
+            finish();
+        }
     }
 }

@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".Registration_Activity"
     android:orientation="vertical"
     android:background="@color/blue"
     android:padding="10dp"
-    tools:context=".Login_Activity">
+    >
 
     <ImageView
-        android:id="@+id/login_imageView_id"
+        android:id="@+id/r_imageView_id"
         android:layout_width="220dp"
         android:layout_marginTop="200dp"
         android:layout_gravity="center"
@@ -20,7 +21,7 @@
         app:srcCompat="@drawable/money" />
 
     <EditText
-        android:id="@+id/l_email_id"
+        android:id="@+id/r_email_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -31,7 +32,7 @@
         />
 
     <EditText
-        android:id="@+id/l_password_id"
+        android:id="@+id/r_password_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColorHint="@color/black"
@@ -42,29 +43,30 @@
         android:inputType="numberPassword" />
 
     <Button
-        android:id="@+id/l_login_id"
+        android:id="@+id/r_register_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:layout_margin="30dp"
-        android:text="Login"
+        android:text="Register"
+        android:onClick="register"
         android:textColor="@color/black"
-        android:onClick="login"
         android:textStyle="bold"
         android:backgroundTint="@color/yellow"
         android:textSize="20sp"
         />
 
     <TextView
-        android:id="@+id/l_dnt_have_Accout_id"
+        android:id="@+id/r_have_Accout_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Don't have accout? Register!"
+        android:text="Already have accout? Login!"
         android:textAlignment="center"
+        android:onClick="have_account"
         android:textColor="@color/black"
         android:textSize="10sp"
-        android:onClick="dnt_have_accout"
         android:textStyle="normal"
         />
+
 
 </LinearLayout>
