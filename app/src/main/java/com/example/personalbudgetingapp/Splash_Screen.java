@@ -44,7 +44,7 @@ public class Splash_Screen extends AppCompatActivity {
     }
 
 
-    @Override
+  /*  @Override
     protected void onStart() {
         super.onStart();
 
@@ -53,5 +53,5 @@ public class Splash_Screen extends AppCompatActivity {
             startActivity(new Intent(Splash_Screen.this, MainActivity.class));
             finish();
         }
-    }
+    }*/
 }
