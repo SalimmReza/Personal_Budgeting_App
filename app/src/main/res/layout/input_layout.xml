@@ -11,6 +11,7 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blue"
     android:orientation="vertical"
     >
 
@@ -18,8 +19,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Select a budget item"
+        android:layout_marginTop="10dp"
         android:textAlignment="center"
         android:textStyle="bold"
+        android:layout_marginBottom="10dp"
         android:textColor="@color/black"
         android:textSize="15sp"
         android:textAllCaps="true"/>
@@ -35,6 +38,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:padding="8dp"
+            android:backgroundTint="@color/blue"
             android:entries="@array/items"
             android:layout_gravity="center"
             android:background="@color/white"/>
@@ -45,12 +50,13 @@
             android:layout_height="wrap_content"
             android:hint="Enter Amount"
            android:textColor="@color/black"
+            android:textStyle="bold"
             android:textSize="15sp"
             android:inputType="number"
             android:textColorHint="@color/black"
             android:layout_marginTop="5dp"
-            android:layout_margin="10dp"
-            android:padding="5dp"/>
+
+            android:padding="15dp"/>
 
 
 
