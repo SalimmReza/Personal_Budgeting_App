@@ -50,6 +50,14 @@ public class Budget_Activity extends AppCompatActivity {
     private TextView total_budget_textview;
     private RecyclerView recyclerView;
 
+
+    private String post_key="";
+    private String item = "";
+    private int amount =0;
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -232,6 +240,17 @@ public class Budget_Activity extends AppCompatActivity {
                         holder.imageView.setImageResource(R.drawable.other);
                         break;
                 }
+
+                            holder.m_view.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    post_key=getRef(position).getKey();
+                                    item=model.getItem();
+                                    amount = model.getAmount();
+                                    update_data();
+                                }
+                            });
+
             }
 
             @NonNull
@@ -284,5 +303,94 @@ public class Budget_Activity extends AppCompatActivity {
             TextView date = m_view.findViewById(R.id.rl_date_id);
             date.setText(item_date);
         }
+
+
+    }
+
+    private void  update_data()
+    {
+        AlertDialog.Builder my_dialog = new AlertDialog.Builder(this);
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View m_view= inflater.inflate(R.layout.update_layout, null);
+
+        my_dialog.setView(m_view);
+        final AlertDialog dialog = my_dialog.create();
+
+
+        final TextView m_item = m_view.findViewById(R.id.u_item_name_id);
+        final EditText m_amount = m_view.findViewById(R.id.u_amount_id);
+        final EditText m_notes = m_view.findViewById(R.id.u_notes_id);
+
+        m_notes.setVisibility(View.GONE);
+        m_item.setText(item);
+
+        m_amount.setText(String.valueOf("$" +amount));
+        m_amount.setSelection(String.valueOf(amount).length());
+
+        Button delete_btn = m_view.findViewById(R.id.u_delete_id);
+        Button update_btn = m_view.findViewById(R.id.u_update_id);
+
+        update_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                amount= Integer.parseInt(m_amount.getText().toString());
+
+
+                DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                Calendar cal = Calendar.getInstance();
+                String date = dateFormat.format(cal.getTime());
+
+                MutableDateTime epochh = new MutableDateTime();
+                epochh.setDate(0);
+                DateTime now = new DateTime();
+                Months months = Months.monthsBetween(epochh, now);
+
+                Data data = new Data(item, date , post_key, null , amount, months.getMonths());
+                budget_ref.child(post_key).setValue(data).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful())
+                        {
+                            Toast.makeText(Budget_Activity.this, "Successful", Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+                            Toast.makeText(Budget_Activity.this, task.getException().toString() , Toast.LENGTH_SHORT).show();
+
+                        }
+
+                    }
+                });
+
+                dialog.dismiss();
+            }
+        });
+
+
+        delete_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                budget_ref.child(post_key).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful())
+                        {
+                            Toast.makeText(Budget_Activity.this, "Successful", Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+                            Toast.makeText(Budget_Activity.this, task.getException().toString() , Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+                });
+
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+
     }
 }
