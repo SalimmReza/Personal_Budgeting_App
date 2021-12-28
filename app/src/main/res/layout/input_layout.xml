@@ -68,10 +68,12 @@
             android:hint="Enter Notes"
             android:textColor="@color/black"
             android:textSize="15sp"
+            android:textStyle="bold"
             android:textColorHint="@color/black"
             android:layout_marginTop="5dp"
-            android:layout_margin="10dp"
-            android:padding="5dp"/>
+            android:padding="15dp"
+
+            />
 
     </LinearLayout>
 

@@ -1,5 +1,7 @@
 package com.example.personalbudgetingapp;
 
+import static java.lang.Integer.parseInt;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -150,7 +152,7 @@ public class Budget_Activity extends AppCompatActivity {
                     DateTime now = new DateTime();
                     Months months = Months.monthsBetween(epochh, now);
 
-                    Data data = new Data(budget_item, date , id, null , Integer.parseInt(budget_amount), months.getMonths());
+                    Data data = new Data(budget_item, date , id, null , parseInt(budget_amount), months.getMonths());
                     budget_ref.child(id).setValue(data).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
@@ -324,7 +326,7 @@ public class Budget_Activity extends AppCompatActivity {
         m_notes.setVisibility(View.GONE);
         m_item.setText(item);
 
-        m_amount.setText(String.valueOf("$" +amount));
+        m_amount.setText(String.valueOf(amount));
         m_amount.setSelection(String.valueOf(amount).length());
 
         Button delete_btn = m_view.findViewById(R.id.u_delete_id);
@@ -333,6 +335,8 @@ public class Budget_Activity extends AppCompatActivity {
         update_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 amount= Integer.parseInt(m_amount.getText().toString());
 
 
