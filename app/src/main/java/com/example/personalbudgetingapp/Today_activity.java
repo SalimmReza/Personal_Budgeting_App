@@ -33,6 +33,7 @@ import com.google.firebase.database.ValueEventListener;
 import org.joda.time.DateTime;
 import org.joda.time.Months;
 import org.joda.time.MutableDateTime;
+import org.joda.time.Weeks;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -72,8 +73,8 @@ public class Today_activity extends AppCompatActivity {
         progressBar = findViewById(R.id.t_progressbar_id);
         recyclerView = findViewById(R.id.t_recycler_view_id);
         fab = findViewById(R.id.t_fab_id);
-
         pd= new ProgressDialog(this);
+
         auth = FirebaseAuth.getInstance();
         on_line_user_id= auth.getCurrentUser().getUid();
         express_Ref= FirebaseDatabase.getInstance().getReference("expenses").child(on_line_user_id);
@@ -194,9 +195,10 @@ public class Today_activity extends AppCompatActivity {
                         MutableDateTime epochh = new MutableDateTime();
                         epochh.setDate(0);
                         DateTime now = new DateTime();
+                        Weeks weeks = Weeks.weeksBetween(epochh, now);
                         Months months = Months.monthsBetween(epochh, now);
 
-                        Data data = new Data(expense_item, date , id, expense_note, Integer.parseInt(expense_amount), months.getMonths());
+                        Data data = new Data(expense_item, date , id, expense_note, Integer.parseInt(expense_amount), months.getMonths(), weeks.getWeeks());
                         express_Ref.child(id).setValue(data).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
