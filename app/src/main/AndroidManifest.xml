@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PersonalBudgetingApp">
         <activity
+            android:name=".WeekSoendingActivity"
+            android:exported="true" />
+        <activity
             android:name=".Today_activity"
             android:exported="true" />
         <activity
@@ -34,11 +37,13 @@
             android:name=".Splash_Screen"
             android:exported="true">
 
-            <!--<intent-filter>
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
     </application>
 

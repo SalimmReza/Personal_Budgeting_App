@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue"
-android:orientation="vertical"
-    tools:context=".Today_activity">
+    tools:context=".WeekSoendingActivity">
+
 
 
     <LinearLayout
@@ -17,26 +16,26 @@ android:orientation="vertical"
 
 
 
-    <Toolbar
-        android:id="@+id/t_toollbar_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/yellow"
-        android:elevation="5dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        <Toolbar
+            android:id="@+id/w_toollbar_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/yellow"
+            android:elevation="5dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
 
 
 
 
-        />
+            />
 
 
         <TextView
-            android:id="@+id/t_total_budget_Amount_text_view_id"
+            android:id="@+id/w_total_budget_Amount_text_view_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Today spending : $0"
+            android:text="Total week amount $0"
             android:textSize="20sp"
             android:textColor="@color/black"
             android:textStyle="bold"
@@ -55,7 +54,7 @@ android:orientation="vertical"
             >
 
             <ProgressBar
-                android:id="@+id/t_progressbar_id"
+                android:id="@+id/w_progressbar_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
@@ -63,13 +62,13 @@ android:orientation="vertical"
 
             <androidx.recyclerview.widget.RecyclerView
 
-                android:id="@+id/t_recycler_view_id"
+                android:id="@+id/w_recycler_view_id"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/t_fab_id"
+                android:id="@+id/w_fab_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|end"

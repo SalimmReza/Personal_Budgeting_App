@@ -24,6 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import org.joda.time.DateTime;
 import org.joda.time.Months;
 import org.joda.time.MutableDateTime;
+import org.joda.time.Weeks;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -164,9 +165,10 @@ public class Today_items_adapter extends RecyclerView.Adapter<Today_items_adapte
                 MutableDateTime epochh = new MutableDateTime();
                 epochh.setDate(0);
                 DateTime now = new DateTime();
+                Weeks weeks = Weeks.weeksBetween(epochh, now);
                 Months months = Months.monthsBetween(epochh, now);
 
-                Data data = new Data(item, date , post_key, note , amount, months.getMonths());
+                Data data = new Data(item, date , post_key, note , amount, months.getMonths(), weeks.getWeeks());
                 DatabaseReference reference = FirebaseDatabase.getInstance().getReference("expenses").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
                 reference.child(post_key).setValue(data).addOnCompleteListener(new OnCompleteListener<Void>() {
