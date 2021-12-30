@@ -59,7 +59,7 @@ public class WeekSoendingActivity extends AppCompatActivity {
         totalAmount = findViewById(R.id.w_total_budget_Amount_text_view_id);
         progressBar = findViewById(R.id.w_progressbar_id);
         recyclerView = findViewById(R.id.w_recycler_view_id);
-        fab = findViewById(R.id.w_fab_id);
+
         pd= new ProgressDialog(this);
 
 
@@ -195,6 +195,5 @@ public class WeekSoendingActivity extends AppCompatActivity {
 
     }
 
-    public void fab(View view) {
-    }
+
 }
