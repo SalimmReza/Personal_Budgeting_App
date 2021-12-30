@@ -313,6 +313,7 @@
                 android:layout_column="1"
                 android:layout_gravity="fill"
                 android:layout_rowWeight="1"
+                android:onClick="month"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="10dp"
                 android:layout_columnWeight="1"
