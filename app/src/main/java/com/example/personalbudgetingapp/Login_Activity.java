@@ -16,7 +16,9 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.EmailAuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Login_Activity extends AppCompatActivity {
 
@@ -26,6 +28,8 @@ public class Login_Activity extends AppCompatActivity {
 
     private FirebaseAuth auth;
     private ProgressDialog pd;
+
+    private FirebaseAuth.AuthStateListener authStateListener;
 
 
     @Override
@@ -40,6 +44,19 @@ public class Login_Activity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         pd= new ProgressDialog(this);
+
+        authStateListener= new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = auth.getCurrentUser();
+                if (user!=null)
+                {
+                    Intent intent = new Intent(Login_Activity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+        };
 
 
 
@@ -92,6 +109,17 @@ public class Login_Activity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
 
+        auth.addAuthStateListener(authStateListener);
+    }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        auth.removeAuthStateListener(authStateListener);
+    }
 }
