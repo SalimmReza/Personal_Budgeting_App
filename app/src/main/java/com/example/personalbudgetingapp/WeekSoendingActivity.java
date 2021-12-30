@@ -22,6 +22,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import org.joda.time.DateTime;
+import org.joda.time.Months;
 import org.joda.time.MutableDateTime;
 import org.joda.time.Weeks;
 
@@ -44,6 +45,11 @@ public class WeekSoendingActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private DatabaseReference express_Ref;
     private String on_line_user_id = "";
+
+    //month work
+    private String type ="";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,8 +78,71 @@ public class WeekSoendingActivity extends AppCompatActivity {
         my_data_list= new ArrayList<>();
         weekspending_adapter= new weekspending_adapter(WeekSoendingActivity.this , my_data_list);
         recyclerView.setAdapter(weekspending_adapter);
+
+        if (getIntent().getExtras()!=null)
+        {
+            type= getIntent().getStringExtra("type");
+            if (type.equals("week"))
+            {
+                read_weeks_spending_items();
+            }
+            else if (type.equals("month"))
+            {
+                read_month_spending_items();
+            }
+        }
+
+
         
-        read_weeks_spending_items();
+
+
+
+    }
+
+    private void read_month_spending_items() {
+
+        MutableDateTime epochh = new MutableDateTime();
+        epochh.setDate(0);
+        DateTime now = new DateTime();
+        Months months = Months.monthsBetween(epochh, now);
+
+        express_Ref= FirebaseDatabase.getInstance().getReference("expenses").child(on_line_user_id);
+
+        Query query = express_Ref.orderByChild("month").equalTo(months.getMonths());
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                my_data_list.clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren())
+                {
+                    Data data = dataSnapshot.getValue(Data.class);
+                    my_data_list.add(data);
+                }
+
+                weekspending_adapter.notifyDataSetChanged();
+                progressBar.setVisibility(View.GONE);
+
+                int total_amount = 0;
+                for (DataSnapshot ds: snapshot.getChildren())
+                {
+                    Map<String, Object> map = (Map<String, Object>) ds.getValue();
+                    Object total = map.get("amount");
+                    int p_total = Integer.parseInt(String.valueOf(total));
+                    total_amount += p_total;
+
+                    totalAmount.setText("Month spending : $"+total_amount);
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
 
 
     }
