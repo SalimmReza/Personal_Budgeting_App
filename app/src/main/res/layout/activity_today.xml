@@ -26,17 +26,25 @@ android:orientation="vertical"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
 
+        >
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Budgeting App"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textAlignment="center"/>
 
-
-        />
+    </Toolbar>
 
 
         <TextView
             android:id="@+id/t_total_budget_Amount_text_view_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Today spending : $0"
+            android:text="Total amount : $0"
             android:textSize="20sp"
             android:textColor="@color/black"
             android:textStyle="bold"
