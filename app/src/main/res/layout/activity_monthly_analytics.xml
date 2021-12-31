@@ -1,0 +1,978 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/blue"
+    tools:context=".Monthly_analytics_Activity">
+
+
+
+    <Toolbar
+        android:id="@+id/ma_toollbar_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/yellow"
+        android:elevation="5dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+
+    <TextView
+        android:id="@+id/da_total_budget_Amount_text_view_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total spending : $0"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        >
+
+        <View
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/view_draw"
+            android:backgroundTint="@color/green" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="50%"
+            android:layout_weight="2"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textStyle="normal"
+            android:textSize="15sp"/>
+
+
+        <View
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/view_draw"
+            android:backgroundTint="@color/yellow" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="50% - 99%"
+            android:layout_weight="2"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textStyle="normal"
+            android:textSize="15sp"/>
+
+
+
+        <View
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/view_draw"
+            android:backgroundTint="@color/red" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="100%"
+            android:layout_weight="2"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textStyle="normal"
+            android:textSize="15sp"/>
+
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <RelativeLayout
+                android:id="@+id/da_relative_layout_transport_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                >
+
+                <LinearLayout
+                    android:id="@+id/da_linear_layout_id"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Transport"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/da_transport_amount_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Spent"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="Status"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:layout_weight="2"
+                            android:textStyle="normal" />
+
+                        <View
+                            android:id="@+id/ad_transport_status_id"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/view_draw"
+                            android:backgroundTint="@color/green" />
+                    </LinearLayout>
+
+                    <TextView
+
+                        android:id="@+id/ad_transport_day_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Day"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:layout_weight="2"
+                        android:textStyle="normal" />
+
+
+
+
+                </LinearLayout>
+
+
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/transport"
+                    android:layout_marginTop="15dp"
+                    android:layout_toEndOf="@+id/da_linear_layout_id"
+                    android:layout_marginLeft="40dp"/>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/da_relative_layout_food_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                >
+
+                <LinearLayout
+                    android:id="@+id/da_linear_food_id"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Food"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/da_food_amount_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Spent"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="Status"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:layout_weight="2"
+                            android:textStyle="normal" />
+
+                        <View
+                            android:id="@+id/ad_food_status_id"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/view_draw"
+                            android:backgroundTint="@color/green" />
+                    </LinearLayout>
+
+                    <TextView
+
+                        android:id="@+id/ad_food_day_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Day"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:layout_weight="2"
+                        android:textStyle="normal" />
+
+
+
+
+                </LinearLayout>
+
+
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/food"
+                    android:layout_marginTop="15dp"
+                    android:layout_toEndOf="@+id/da_linear_food_id"
+                    android:layout_marginLeft="40dp"/>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/da_relative_layout_house_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                >
+
+                <LinearLayout
+                    android:id="@+id/da_linear_house_id"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="House"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/da_transport_house_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Spent"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="Status"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:layout_weight="2"
+                            android:textStyle="normal" />
+
+                        <View
+                            android:id="@+id/ad_house_status_id"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/view_draw"
+                            android:backgroundTint="@color/green" />
+                    </LinearLayout>
+
+                    <TextView
+
+                        android:id="@+id/ad_house_day_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Day"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:layout_weight="2"
+                        android:textStyle="normal" />
+
+
+
+
+                </LinearLayout>
+
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_toEndOf="@+id/da_linear_house_id"
+                    android:src="@drawable/home" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/da_relative_layout_entertainment_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                >
+
+                <LinearLayout
+                    android:id="@+id/da_linear_entertainment_id"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Entertainment"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/da_entertainment_amount_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Spent"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="Status"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:layout_weight="2"
+                            android:textStyle="normal" />
+
+                        <View
+                            android:id="@+id/ad_entertainment_status_id"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/view_draw"
+                            android:backgroundTint="@color/green" />
+                    </LinearLayout>
+
+                    <TextView
+
+                        android:id="@+id/ad_entertainment_day_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Day"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:layout_weight="2"
+                        android:textStyle="normal" />
+
+
+
+
+                </LinearLayout>
+
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_toEndOf="@+id/da_linear_entertainment_id"
+                    android:src="@drawable/entertainment" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/da_relative_layout_education_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                >
+
+                <LinearLayout
+                    android:id="@+id/da_linear_education_id"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Education"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/da_transport_education_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Spent"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="Status"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:layout_weight="2"
+                            android:textStyle="normal" />
+
+                        <View
+                            android:id="@+id/ad_transport_education_id"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/view_draw"
+                            android:backgroundTint="@color/green" />
+                    </LinearLayout>
+
+                    <TextView
+
+                        android:id="@+id/ad_education_day_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Day"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:layout_weight="2"
+                        android:textStyle="normal" />
+
+
+
+
+                </LinearLayout>
+
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_toEndOf="@+id/da_linear_education_id"
+                    android:src="@drawable/education" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/da_relative_layout_charity_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                >
+
+                <LinearLayout
+                    android:id="@+id/da_linear_charity_id"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Charity"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/da_charity_amount_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Spent"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="Status"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:layout_weight="2"
+                            android:textStyle="normal" />
+
+                        <View
+                            android:id="@+id/ad_charity_status_id"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/view_draw"
+                            android:backgroundTint="@color/green" />
+                    </LinearLayout>
+
+                    <TextView
+
+                        android:id="@+id/ad_charity_day_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Day"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:layout_weight="2"
+                        android:textStyle="normal" />
+
+
+
+
+                </LinearLayout>
+
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_toEndOf="@+id/da_linear_charity_id"
+                    android:src="@drawable/charity" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/da_relative_layout_health_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                >
+
+                <LinearLayout
+                    android:id="@+id/da_linear_health_id"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Health"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/da_health_amount_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Spent"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="Status"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:layout_weight="2"
+                            android:textStyle="normal" />
+
+                        <View
+                            android:id="@+id/ad_health_status_id"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/view_draw"
+                            android:backgroundTint="@color/green" />
+                    </LinearLayout>
+
+                    <TextView
+
+                        android:id="@+id/ad_health_day_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Day"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:layout_weight="2"
+                        android:textStyle="normal" />
+
+
+
+
+                </LinearLayout>
+
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_toEndOf="@+id/da_linear_health_id"
+                    android:src="@drawable/health" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/da_relative_layout_personal_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                >
+
+                <LinearLayout
+                    android:id="@+id/da_linear_personal_id"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Personal"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/da_personal_amount_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Spent"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="Status"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:layout_weight="2"
+                            android:textStyle="normal" />
+
+                        <View
+                            android:id="@+id/ad_personal_status_id"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/view_draw"
+                            android:backgroundTint="@color/green" />
+                    </LinearLayout>
+
+                    <TextView
+
+                        android:id="@+id/ad_personal_day_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Day"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:layout_weight="2"
+                        android:textStyle="normal" />
+
+
+
+
+                </LinearLayout>
+
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_toEndOf="@+id/da_linear_personal_id"
+                    android:src="@drawable/personal" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/da_relative_layout_others_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                >
+
+                <LinearLayout
+                    android:id="@+id/da_linear_others_id"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Others"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/da_others_amount_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Spent"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="Status"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:layout_weight="2"
+                            android:textStyle="normal" />
+
+                        <View
+                            android:id="@+id/ad_others_status_id"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/view_draw"
+                            android:backgroundTint="@color/green" />
+                    </LinearLayout>
+
+                    <TextView
+
+                        android:id="@+id/ad_others_day_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="Day"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:layout_weight="2"
+                        android:layout_marginBottom="20dp"
+                        android:textStyle="normal" />
+
+
+
+
+                </LinearLayout>
+
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_toEndOf="@+id/da_linear_others_id"
+                    android:src="@drawable/other" />
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/da_linearLayoutAnalysis"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="14dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/da_linearLayout10"
+                    android:orientation="vertical"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Summary Spending Status"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Total Spent: Ksh 0"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:id="@+id/da_monthSpentAmount"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:text="status"
+                            android:textSize="12sp"
+                            android:textColor="@color/white"
+                            android:id="@+id/da_monthRatioSpending"
+                            />
+                        <ImageView
+                            android:id="@+id/da_monthRatioSpending_Image"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="18dp"
+                            android:layout_marginTop="5dp"
+
+                            />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Day"
+                        android:textSize="12sp"
+                        android:textColor="@color/white"
+
+                        />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_toEndOf="@+id/da_linearLayout10"
+                    android:src="@drawable/today" />
+
+            </RelativeLayout>
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+    </ScrollView>
+
+</LinearLayout>

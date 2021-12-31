@@ -10,7 +10,7 @@ import android.view.View;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
-    private CardView budget_card_view , today_expense, week_cardview, month_card_view;
+    private CardView budget_card_view , today_expense, week_cardview, month_card_view , analytics_cardview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         today_expense= findViewById(R.id.m_today_card_view_id);
         week_cardview= findViewById(R.id.m_week_card_view_id);
         month_card_view= findViewById(R.id.m_month_card_view_id);
+        analytics_cardview= findViewById(R.id.m_analytics_card_view_id);
 
     }
 
@@ -45,6 +46,11 @@ public class MainActivity extends AppCompatActivity {
     public void month(View view) {
         Intent intent = new Intent(MainActivity.this, WeekSoendingActivity.class);
         intent.putExtra("type", "month");
+        startActivity(intent);
+    }
+
+    public void analytics(View view) {
+        Intent intent = new Intent(MainActivity.this, Choose_analytics_activity.class);
         startActivity(intent);
     }
 }

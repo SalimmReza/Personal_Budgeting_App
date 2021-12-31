@@ -352,6 +352,7 @@
                 android:id="@+id/m_analytics_card_view_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="analytics"
                 android:layout_row="2"
                 android:layout_column="0"
                 android:layout_gravity="fill"
