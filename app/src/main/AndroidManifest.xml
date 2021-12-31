@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PersonalBudgetingApp">
         <activity
+            android:name=".HISTORY_ACTIVITY"
+            android:exported="true" />
+        <activity
             android:name=".Wekly_analytics_activity"
             android:exported="true" />
         <activity

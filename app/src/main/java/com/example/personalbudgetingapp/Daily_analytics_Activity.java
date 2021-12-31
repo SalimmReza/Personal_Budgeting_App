@@ -6,6 +6,8 @@ import android.os.Bundle;
 
 public class Daily_analytics_Activity extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
